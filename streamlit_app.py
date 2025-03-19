@@ -5,6 +5,28 @@ import json
 with open("pathology_data.json", "r") as json_file:
     pathology_data = json.load(json_file)
 
+st.markdown(
+    """
+    <style>
+        /* Use a dyslexia-friendly font */
+        html, body, [class*="st-"] {
+            font-family: Arial, Verdana, sans-serif !important;
+            line-height: 1.6 !important; /* Increase spacing for readability */
+        }
+
+        /* Increase font size */
+        h1, h2, h3 {
+            font-size: 22px !important;
+        }
+        p, label, div {
+            font-size: 18px !important;
+        }
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # Define questions and expected responses
 questions = {
