@@ -17,16 +17,20 @@ questions = {
     "weakness_lifting": "How weak does your shoulder feel when lifting objects?"
 }
 
-# Define response types (Yes/No or 1-5 Scale)
-question_types = {
-    "fall_recently": ["No", "Yes"],
-    "sudden_start": ["No", "Yes"],
-    "unstable": ["No", "Yes"],
-    "history_of_issues": ["No", "Yes"],
-    "lifting_pain": list(range(1, 6)),
-    "stiffness": list(range(1, 6)),
-    "localized_pain": list(range(1, 6)),
-    "weakness_lifting": list(range(1, 6))
+# Define response types (Yes/No, Custom Labels, or 1-5 Scale)
+custom_answers = {
+    "fall_recently": {"No": 0, "Yes": 1},
+    "sudden_start": {"Gradually": 0, "Suddenly": 1},
+    "unstable": {"No": 0, "Yes": 1},
+    "history_of_issues": {"No": 0, "Yes": 1}
+}
+
+# Define slider labels for start and end of the scale
+slider_labels = {
+    "lifting_pain": ("No pain at all", "Extremely painful"),
+    "stiffness": ("No restriction", "Very restricted"),
+    "localized_pain": ("No tenderness", "Severe pain"),
+    "weakness_lifting": ("No weakness", "Completely weak")
 }
 
 # Streamlit UI
@@ -38,10 +42,14 @@ user_responses = {}
 
 # Create UI input fields
 for key, question in questions.items():
-    if key in ["fall_recently", "sudden_start", "unstable", "history_of_issues"]:
-        user_responses[key] = st.radio(question, [0, 1], format_func=lambda x: "No" if x == 0 else "Yes")
+    if key in custom_answers:  
+        # Use custom labels for Yes/No or Gradually/Suddenly questions
+        user_responses[key] = st.radio(question, list(custom_answers[key].keys()), format_func=lambda x: x)
+        user_responses[key] = custom_answers[key][user_responses[key]]  # Convert to 0/1 for calculations
     else:
-        user_responses[key] = st.slider(question, 1, 5, 3)
+        # Use sliders with labels for 1-5 scale questions
+        min_label, max_label = slider_labels.get(key, ("Low", "High"))
+        user_responses[key] = st.slider(question, 1, 5, 3, format="%d", help=f"{min_label} (1) → {max_label} (5)")
 
 # **Key Tell-Signs with Boosts for Scores of 4 or 5**
 key_tell_signs = {
