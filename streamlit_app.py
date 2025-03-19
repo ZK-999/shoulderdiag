@@ -5,6 +5,56 @@ import json
 with open("pathology_data.json", "r") as json_file:
     pathology_data = json.load(json_file)
 
+# Apply dyslexia-friendly styles
+st.markdown(
+    """
+    <style>
+        /* Improve overall readability */
+        html, body, [class*="st-"] {
+            font-family: Arial, Verdana, sans-serif;
+            background-color: #F3F3F3;
+            color: #1A1A1A;
+            line-height: 1.5;
+        }
+
+        /* Increase font size for readability */
+        h1, h2, h3 {
+            font-size: 22px !important;
+        }
+        p {
+            font-size: 18px !important;
+        }
+        
+        /* Improve text alignment */
+        .stMarkdown {
+            text-align: left !important;
+        }
+
+        /* Style buttons for better visibility */
+        .stButton>button {
+            font-size: 18px;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* Improve radio button labels */
+        .stRadio div[role="radiogroup"] label {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        /* Enhance select slider readability */
+        .stSelectbox, .stSlider {
+            font-size: 18px;
+        }
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Define questions and expected responses
 questions = {
     "fall_recently": "Did your shoulder problems start after an impact or fall?",
