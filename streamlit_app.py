@@ -27,10 +27,10 @@ custom_answers = {
 
 # Define slider labels for start and end of the scale
 slider_labels = {
-    "lifting_pain": ("No pain at all", "Extremely painful"),
-    "stiffness": ("No restriction", "Very restricted"),
-    "localized_pain": ("No tenderness", "Severe pain"),
-    "weakness_lifting": ("No weakness", "Completely weak")
+    "lifting_pain": ["No pain at all", "Mild pain", "Moderate pain", "Severe pain", "Extremely painful"],
+    "stiffness": ["No restriction", "Mild restriction", "Moderate restriction", "Severe restriction", "Very restricted"],
+    "localized_pain": ["No tenderness", "Mild tenderness", "Moderate pain", "Severe pain", "Extreme pain"],
+    "weakness_lifting": ["No weakness", "Slight weakness", "Moderate weakness", "Severe weakness", "Completely weak"]
 }
 
 # Streamlit UI
@@ -46,10 +46,12 @@ for key, question in questions.items():
         # Use custom labels for Yes/No or Gradually/Suddenly questions
         selected_option = st.radio(question, list(custom_answers[key].keys()), format_func=lambda x: x)
         user_responses[key] = custom_answers[key].get(selected_option, 0)  # Convert labels to numerical values
+    elif key in slider_labels:
+        # Use select_slider to show text-based scale instead of numbers
+        user_responses[key] = st.select_slider(question, options=[1, 2, 3, 4, 5], format_func=lambda x: slider_labels[key][x - 1])
     else:
-        # Use sliders with labels for 1-5 scale questions
-        min_label, max_label = slider_labels.get(key, ("Low", "High"))
-        user_responses[key] = st.slider(question, 1, 5, 3, format="%d", help=f"{min_label} (1) → {max_label} (5)")
+        # Default numeric slider
+        user_responses[key] = st.slider(question, 1, 5, 3)
 
 # **Key Tell-Signs with Boosts for Scores of 4 or 5**
 key_tell_signs = {
