@@ -1,0 +1,102 @@
+{
+    "RC Tear": {
+        "fall_recently": 0,
+        "lifting_pain": 5,
+        "sudden_start": 0,
+        "unstable": 0,
+        "stiffness": 3,
+        "localized_pain": 4,
+        "history_of_issues": 1,
+        "weakness_lifting": 5
+    },
+    "GH Dislocation": {
+        "fall_recently": 3,
+        "lifting_pain": 3,
+        "sudden_start": 1,
+        "unstable": 1,
+        "stiffness": 1,
+        "localized_pain": 4,
+        "history_of_issues": 0,
+        "weakness_lifting": 4
+    },
+    "Bursitis": {
+        "fall_recently": 0,
+        "lifting_pain": 4,
+        "sudden_start": 0,
+        "unstable": 0,
+        "stiffness": 3,
+        "localized_pain": 5,
+        "history_of_issues": 1,
+        "weakness_lifting": 2
+    },
+    "Tendinitis": {
+        "fall_recently": 0,
+        "lifting_pain": 5,
+        "sudden_start": 0,
+        "unstable": 0,
+        "stiffness": 2,
+        "localized_pain": 5,
+        "history_of_issues": 1,
+        "weakness_lifting": 3
+    },
+    "Tendon Tear": {
+        "fall_recently": 1,
+        "lifting_pain": 5,
+        "sudden_start": 1,
+        "unstable": 0,
+        "stiffness": 2,
+        "localized_pain": 4,
+        "history_of_issues": 1,
+        "weakness_lifting": 5
+    },
+    "Impingement": {
+        "fall_recently": 0,
+        "lifting_pain": 5,
+        "sudden_start": 0,
+        "unstable": 0,
+        "stiffness": 2,
+        "localized_pain": 3,
+        "history_of_issues": 1,
+        "weakness_lifting": 3
+    },
+    "Instability": {
+        "fall_recently": 1,
+        "lifting_pain": 3,
+        "sudden_start": 1,
+        "unstable": 1,
+        "stiffness": 1,
+        "localized_pain": 3,
+        "history_of_issues": 0,
+        "weakness_lifting": 2
+    },
+    "Arthritis": {
+        "fall_recently": 0,
+        "lifting_pain": 3,
+        "sudden_start": 0,
+        "unstable": 0,
+        "stiffness": 5,
+        "localized_pain": 3,
+        "history_of_issues": 1,
+        "weakness_lifting": 3
+    },
+    "Fracture": {
+        "fall_recently": 1,
+        "lifting_pain": 2,
+        "sudden_start": 1,
+        "unstable": 0,
+        "stiffness": 1,
+        "localized_pain": 5,
+        "history_of_issues": 0,
+        "weakness_lifting": 3
+    },
+    "Frozen Shoulder": {
+        "fall_recently": 0,
+        "lifting_pain": 3,
+        "sudden_start": 0,
+        "unstable": 0,
+        "stiffness": 5,
+        "localized_pain": 3,
+        "history_of_issues": 1,
+        "weakness_lifting": 3
+    }
+}
