@@ -27,10 +27,10 @@ custom_answers = {
 
 # Define slider labels for start and end of the scale
 slider_labels = {
-    "lifting_pain": ["No pain at all", "Mild pain", "Moderate pain", "Severe pain", "Extremely painful"],
-    "stiffness": ["No restriction", "Mild restriction", "Moderate restriction", "Severe restriction", "Very restricted"],
-    "localized_pain": ["No tenderness", "Mild tenderness", "Moderate pain", "Severe pain", "Extreme pain"],
-    "weakness_lifting": ["No weakness", "Slight weakness", "Moderate weakness", "Severe weakness", "Completely weak"]
+    "lifting_pain": ["No pain", "Slight discomfort", "Noticable pain", "Severe pain", "Unbearable painful"],
+    "stiffness": ["No stiffness", "Slight stiffness", "Moderate stiffness", "Severe stiffness", "Frozen/stuck"],
+    "localized_pain": ["No tenderness", "Slight tenderness", "Noticable pain", "Sharp pain", "Extreme pain"],
+    "weakness_lifting": ["No weakness", "Slight weakness", "Moderate weakness", "Struggles to lift", "Unable to lift"]
 }
 
 # Streamlit UI
