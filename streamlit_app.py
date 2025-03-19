@@ -5,7 +5,6 @@ import json
 with open("pathology_data.json", "r") as json_file:
     pathology_data = json.load(json_file)
 
-# Apply dyslexia-friendly styles
 st.markdown(
     """
     <style>
@@ -21,13 +20,20 @@ st.markdown(
         h1, h2, h3 {
             font-size: 22px !important;
         }
-        p {
+        p, label {
             font-size: 18px !important;
         }
         
         /* Improve text alignment */
         .stMarkdown {
             text-align: left !important;
+        }
+
+        /* Preserve radio buttons & checkboxes */
+        div[role="radiogroup"], div[role="checkboxgroup"] {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         /* Style buttons for better visibility */
@@ -54,6 +60,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 # Define questions and expected responses
 questions = {
