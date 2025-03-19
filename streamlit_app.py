@@ -23,17 +23,11 @@ st.markdown(
         p, label {
             font-size: 18px !important;
         }
-        
-        /* Improve text alignment */
-        .stMarkdown {
-            text-align: left !important;
-        }
 
-        /* Preserve radio buttons & checkboxes */
-        div[role="radiogroup"], div[role="checkboxgroup"] {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        /* Restore checkboxes & radio buttons */
+        div[data-baseweb="radio"], div[data-baseweb="checkbox"] {
+            display: block !important;
+            font-size: 18px !important;
         }
 
         /* Style buttons for better visibility */
@@ -45,21 +39,11 @@ st.markdown(
             border-radius: 8px;
         }
 
-        /* Improve radio button labels */
-        .stRadio div[role="radiogroup"] label {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        /* Enhance select slider readability */
-        .stSelectbox, .stSlider {
-            font-size: 18px;
-        }
-
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 
 # Define questions and expected responses
