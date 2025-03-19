@@ -7,9 +7,9 @@ with open("pathology_data.json", "r") as json_file:
 
 # Define questions and expected responses
 questions = {
-    "fall_recently": "Did you experience trauma or a fall?",
-    "lifting_pain": "Does lifting your arm cause pain?",
-    "sudden_start": "Did the pain start suddenly?",
+    "fall_recently": "Did your shoulder problems start after an impact or fall?",
+    "lifting_pain": "How painful is it to raise your arm?",
+    "sudden_start": "Did your shoulder pain begin suddenly, or did it develop gradually over time?",
     "unstable": "Does your shoulder feel unstable?",
     "stiffness": "Is your shoulder very stiff?",
     "localized_pain": "Do you have localized pain when pressing on the area?",
@@ -20,7 +20,7 @@ questions = {
 # Define response types (Yes/No or 1-5 Scale)
 question_types = {
     "fall_recently": ["No", "Yes"],
-    "sudden_start": ["No", "Yes"],
+    "sudden_start": ["Gradual", "Sudden"],
     "unstable": ["No", "Yes"],
     "history_of_issues": ["No", "Yes"],
     "lifting_pain": list(range(1, 6)),
