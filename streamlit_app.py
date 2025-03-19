@@ -17,7 +17,7 @@ questions = {
     "weakness_lifting": "How weak does your shoulder feel when lifting objects?"
 }
 
-# Define response types (Yes/No, Custom Labels, or 1-5 Scale)
+# Define response types with custom labels
 custom_answers = {
     "fall_recently": {"No": 0, "Yes": 1},
     "sudden_start": {"Gradually": 0, "Suddenly": 1},
@@ -37,16 +37,15 @@ slider_labels = {
 st.title("🩺 Shoulder Pain Diagnosis Tool")
 st.write("Answer the following questions to get a possible diagnosis.")
 
-# Store user inputs
+# Store user responses
 user_responses = {}
 
 # Create UI input fields
 for key, question in questions.items():
     if key in custom_answers:  
         # Use custom labels for Yes/No or Gradually/Suddenly questions
-        user_responses[key] = st.radio(question, list(custom_answers[key].keys()), format_func=lambda x: x)
         selected_option = st.radio(question, list(custom_answers[key].keys()), format_func=lambda x: x)
-        user_responses[key] = custom_answers[key].get(selected_option, 0)  # Use .get() to avoid errors
+        user_responses[key] = custom_answers[key].get(selected_option, 0)  # Convert labels to numerical values
     else:
         # Use sliders with labels for 1-5 scale questions
         min_label, max_label = slider_labels.get(key, ("Low", "High"))
