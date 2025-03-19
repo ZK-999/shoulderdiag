@@ -118,9 +118,5 @@ if st.button("Get Diagnosis"):
 
     # Display results
     st.subheader("📊 Diagnosis Results")
-    sorted_results = sorted(likelihood_scores.items(), key=lambda x: x[1])
-    
-    for pathology, score in sorted_results:
-        st.write(f"**{pathology}:** Score = {score}")
 
     st.success(f"🩺 **Most Likely Condition: {most_likely}**")
