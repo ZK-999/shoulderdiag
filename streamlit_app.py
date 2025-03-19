@@ -27,7 +27,7 @@ custom_answers = {
 
 # Define slider labels for start and end of the scale
 slider_labels = {
-    "lifting_pain": ["No pain", "Slight discomfort", "Noticable pain", "Severe pain", "Unbearable painful"],
+    "lifting_pain": ["No pain", "Slight discomfort", "Noticable pain", "Severe pain", "Extreme pain"],
     "stiffness": ["No stiffness", "Slight stiffness", "Moderate stiffness", "Severe stiffness", "Frozen/stuck"],
     "localized_pain": ["No tenderness", "Slight tenderness", "Noticable pain", "Sharp pain", "Extreme pain"],
     "weakness_lifting": ["No weakness", "Slight weakness", "Moderate weakness", "Struggles to lift", "Unable to lift"]
