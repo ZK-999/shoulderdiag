@@ -120,3 +120,5 @@ if st.button("Get Diagnosis"):
     st.subheader("📊 Diagnosis Results")
 
     st.success(f"🩺 **Most Likely Condition: {most_likely}**")
+    st.markdown("**What this might mean:**")
+    st.markdown(info_text)
