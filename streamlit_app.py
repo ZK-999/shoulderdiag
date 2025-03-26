@@ -119,6 +119,7 @@ if st.button("Get Diagnosis"):
     # Display results
     st.subheader("📊 Diagnosis Results")
 
+    info_text = pathology_data[most_likely].get("info")
     st.success(f"🩺 **Most Likely Condition: {most_likely}**")
     st.markdown("**What this might mean:**")
     st.markdown(info_text)
