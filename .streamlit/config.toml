@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#003344"                     # Deep blue for sliders/buttons/etc.
+backgroundColor = "#96adb0"                  # Your page background
+secondaryBackgroundColor = "#c7d6d8"         # For cards/boxes if needed
+textColor = "#1A1A1A"                        # Dark grey for high contrast text
+font = "sans serif"                          # Clean, accessible font

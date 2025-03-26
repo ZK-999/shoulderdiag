@@ -1,5 +1,5 @@
 {
-    "RC Tear": {
+    "Rotator Cuff Tear": {
         "info": "- Pain in the shoulder, especially when lifting or twisting the arm\n- Sometimes leads to weakness when lifting objects\n- Sometimes accompanied by clicking or popping sound\n- You should visit a doctor",
         "fall_recently": 0,
         "lifting_pain": 5,
@@ -10,7 +10,8 @@
         "history_of_issues": 1,
         "weakness_lifting": 5
     },
-    "GH Dislocation": {
+    "Glenohumeral Dislocation/Subluxation": {
+        "info": "- Sudden, intense shoulder pain after trauma or a fall\n- Visible deformity or 'squared-off' appearance of the shoulder\n- Inability to move the arm normally\n- Feeling of instability or that the shoulder might dislocate again (especially in subluxation)\n- Seek immediate medical attention if a full dislocation is suspected\n- Do not attempt to relocate the shoulder yourself — this should be done by a medical professional\n- Immobilise the shoulder (e.g., in a sling) until assessed",
         "fall_recently": 3,
         "lifting_pain": 3,
         "sudden_start": 1,
@@ -21,6 +22,7 @@
         "weakness_lifting": 4
     },
     "Bursitis": {
+        "info": "- Pain around the shoulder, especially with overhead movement or pressure\n- Often worse at night or after repetitive use\n- May feel warm or swollen to the touch\n- Limited range of motion due to discomfort\n- You should rest the shoulder and speak to a GP or physio if pain persists",
         "fall_recently": 0,
         "lifting_pain": 4,
         "sudden_start": 0,
@@ -31,6 +33,7 @@
         "weakness_lifting": 2
     },
     "Tendinitis": {
+        "info": "- Pain that builds up gradually with activity, especially overhead motions\n- Discomfort or stiffness when moving the arm after rest\n- Tenderness around the front or side of the shoulder\n- Often linked to overuse, repetitive strain, or poor posture\n- Rest, ice, and physiotherapy is often recommended",
         "fall_recently": 0,
         "lifting_pain": 5,
         "sudden_start": 0,
@@ -40,17 +43,8 @@
         "history_of_issues": 1,
         "weakness_lifting": 3
     },
-    "Tendon Tear": {
-        "fall_recently": 1,
-        "lifting_pain": 5,
-        "sudden_start": 1,
-        "unstable": 0,
-        "stiffness": 2,
-        "localized_pain": 4,
-        "history_of_issues": 1,
-        "weakness_lifting": 5
-    },
     "Impingement": {
+        "info": "- Pain when raising the arm, especially between shoulder and head height\n- Discomfort felt at the top or front of the shoulder\n- Often caused by repetitive overhead movements or poor posture\n- May feel like a pinching sensation during certain motions\n- Rest, posture correction, and physiotherapy are usually effective",
         "fall_recently": 0,
         "lifting_pain": 5,
         "sudden_start": 0,
@@ -61,16 +55,18 @@
         "weakness_lifting": 3
     },
     "Instability": {
+        "info": "- Shoulder may feel loose or like it could slip out of place\n- Recurrent episodes of partial dislocation (subluxation) or full dislocation\n- May cause aching, weakness, or dead-arm sensation after activity\n- Often linked to previous trauma or general joint hypermobility\n- Strengthening and stability-focused physiotherapy is commonly recommended",
         "fall_recently": 1,
         "lifting_pain": 3,
         "sudden_start": 1,
         "unstable": 1,
         "stiffness": 1,
         "localized_pain": 3,
-        "history_of_issues": 0,
+        "history_of_issues": 1,
         "weakness_lifting": 2
     },
     "Arthritis": {
+        "info": "- Stiffness and deep aching pain, often worse in the morning or after rest\n- Reduced range of motion that gradually worsens over time\n- May be accompanied by grinding or clicking sensations\n- Pain typically aggravated by activity and relieved by rest\n- Management often involves pain relief, joint-friendly exercise, and medical review",
         "fall_recently": 0,
         "lifting_pain": 3,
         "sudden_start": 0,
@@ -81,6 +77,7 @@
         "weakness_lifting": 3
     },
     "Fracture": {
+        "info": "- Sudden severe pain following trauma or a fall\n- Visible swelling, bruising, or deformity around the shoulder\n- Inability or extreme difficulty moving the arm\n- Pain is often sharp and localised, especially with touch\n- Requires immediate medical attention and imaging",
         "fall_recently": 1,
         "lifting_pain": 2,
         "sudden_start": 1,
@@ -91,6 +88,7 @@
         "weakness_lifting": 3
     },
     "Frozen Shoulder": {
+        "info": "- Severe stiffness and restriction of shoulder movement in all directions\n- Gradual onset of pain, often worsening over weeks to months\n- Can disrupt sleep due to night pain\n- Common in people aged 40–60, often with no clear cause\n- Recovery takes time and may require physiotherapy, injections, or in rare cases, surgery",  
         "fall_recently": 0,
         "lifting_pain": 3,
         "sudden_start": 0,

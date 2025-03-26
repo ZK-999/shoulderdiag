@@ -8,24 +8,44 @@ with open("pathology_data.json", "r") as json_file:
 st.markdown(
     """
     <style>
-        /* Use a dyslexia-friendly font */
+        /* 📄 Global font and spacing for better readability */
         html, body, [class*="st-"] {
             font-family: Arial, Verdana, sans-serif !important;
-            line-height: 1.6 !important; /* Increase spacing for readability */
+            line-height: 1.7 !important;
         }
 
-        /* Increase font size */
         h1, h2, h3 {
             font-size: 22px !important;
         }
+
         p, label, div {
             font-size: 18px !important;
+            color: #1A1A1A;
         }
+
+        /* 🎨 Page background */
+        .stApp {
+            background-color: #96adb0;
+        }
+
+        /* 🔘 Radio button styling */
+        div[role="radiogroup"] > label > div:first-child {
+            background-color: #003344 !important;
+            border: 2px solid #003344 !important;
+        }
+
+        div[role="radiogroup"] > label:hover > div:first-child {
+            border: 2px solid #003344 !important;
+        }
+
 
     </style>
     """,
     unsafe_allow_html=True
 )
+
+
+
 
 
 # Define questions and expected responses
@@ -57,8 +77,10 @@ slider_labels = {
 }
 
 # Streamlit UI
-st.title("🩺 Shoulder Pain Diagnosis Tool")
-st.write("Answer the following questions to get a possible diagnosis.")
+
+st.markdown('<h4 style="font-weight:bold; color:#003344; font-size:40px;">🩺 Shoulder Pain Self-Diagnosis Tool 🩺</p>', unsafe_allow_html=True)
+st.markdown('<span style="color:#8A4B00; font-size:15px;">⚠️ Note: This tool provides a probability-based estimation from your responses. It is NOT a diagnosis or a substitute for professional medical advice. Please consult a professional healthcare provider for proper evaluation and treatment. ⚠️</div>', unsafe_allow_html=True)
+st.markdown('<span style="color:#1A1A1A; font-size:25px;">Answer the following questions to get a possible diagnosis:</p>', unsafe_allow_html=True)
 
 # Store user responses
 user_responses = {}
@@ -70,23 +92,50 @@ for key, question in questions.items():
         selected_option = st.radio(question, list(custom_answers[key].keys()), format_func=lambda x: x)
         user_responses[key] = custom_answers[key].get(selected_option, 0)  # Convert labels to numerical values
     elif key in slider_labels:
-        # Use select_slider to show text-based scale instead of numbers
-        user_responses[key] = st.select_slider(question, options=[1, 2, 3, 4, 5], format_func=lambda x: slider_labels[key][x - 1])
+        # Display the question
+        st.markdown(f"**{question}**")
+
+        # Create the slider (no visible label)
+        col = st.columns([1])[0]
+        with col:
+            value = st.slider(
+                label="",
+                min_value=1,
+                max_value=5,
+                value=3,
+                key=key,
+                label_visibility="collapsed",
+                format=""
+            )
+
+        # Show selected label (e.g., 'Moderate pain') above the slider
+        st.markdown(
+            f"<div style='font-weight:bold; font-size:16px; color:#003344; margin-bottom:0.25rem;'>"
+            f"{slider_labels[key][value - 1]}</div>",
+            unsafe_allow_html=True
+        )
+
+        st.markdown('<span style="line-height:2; color:#003344; font-size:40px;"></p>', unsafe_allow_html=True)
+        st.markdown('<span style="line-height:2; color:#003344; font-size:40px;"></p>', unsafe_allow_html=True)
+
+        # Store the user's response
+        user_responses[key] = value
+
     else:
         # Default numeric slider
         user_responses[key] = st.slider(question, 1, 5, 3)
 
 # **Key Tell-Signs with Boosts for Scores of 4 or 5**
 key_tell_signs = {
-    "GH Dislocation": {"unstable": 1},
-    "RC Tear": {"weakness_lifting": [4, 5]},
+    "Glenohumeral Dislocation/Subluxation": {"unstable": 1},
+    "Rotator Cuff Tear": {"weakness_lifting": [4, 5]},
     "Frozen Shoulder": {"stiffness": 5},
     "Fracture": {"localized_pain": 5}
 }
 
 # **NEW RULE: If "Unstable" is Yes, filter out other conditions**
 if user_responses["unstable"] == 1:
-    relevant_conditions = ["GH Dislocation", "Instability", "Fracture"]
+    relevant_conditions = ["Glenohumeral Dislocation/Subluxation", "Instability", "Fracture"]
 else:
     relevant_conditions = pathology_data.keys()  # Keep all conditions if "Unstable" is No
 
@@ -121,5 +170,5 @@ if st.button("Get Diagnosis"):
 
     info_text = pathology_data[most_likely].get("info")
     st.success(f"🩺 **Most Likely Condition: {most_likely}**")
-    st.markdown("**What this might mean:**")
+    st.markdown("**Common symptoms & further actions to take:**")
     st.markdown(info_text)
