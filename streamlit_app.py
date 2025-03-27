@@ -78,7 +78,7 @@ slider_labels = {
 
 # Streamlit UI
 
-st.markdown('<h4 style="font-weight:bold; color:#003344; font-size:40px;">🩺 Shoulder Pain Self-Diagnosis Tool 🩺</p>', unsafe_allow_html=True)
+st.markdown('<h4 style="font-weight:bold; color:#003344; font-size:40px;">🩺 Shoulder Pain Assessment Tool 🩺</p>', unsafe_allow_html=True)
 st.markdown('<span style="color:#8A4B00; font-size:15px;">⚠️ Note: This tool provides a probability-based estimation from your responses. It is NOT a diagnosis or a substitute for professional medical advice. Please consult a professional healthcare provider for proper evaluation and treatment. ⚠️</div>', unsafe_allow_html=True)
 st.markdown('<span style="color:#1A1A1A; font-size:25px;">Answer the following questions to get a possible diagnosis:</p>', unsafe_allow_html=True)
 
