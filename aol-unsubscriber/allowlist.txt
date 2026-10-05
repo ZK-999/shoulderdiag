@@ -1,0 +1,5 @@
+# Senders listed here are never unsubscribed from.
+# One address per line, or "@example.com" to protect a whole domain.
+# Lines starting with # are comments.
+# newsletter@something-i-like.com
+# @my-bank.com

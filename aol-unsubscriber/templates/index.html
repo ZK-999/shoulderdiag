@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>AOL Unsubscriber</h1>
+{% if demo %}<p class="banner">Demo mode: fake data, nothing is ever sent.</p>{% endif %}
+
+<form method="post" action="/unsubscribe" id="form">
+<input type="hidden" name="token" value="{{ token }}">
+
+<h2>Recurring senders with an unsubscribe option ({{ with_method|length }})</h2>
+<table>
+  <tr>
+    <th><input type="checkbox" id="all" title="Select all"></th>
+    <th>Sender</th><th>Emails</th><th>Latest subject</th><th>Method</th>
+  </tr>
+  {% for s in with_method %}
+  {% set allow = is_allowlisted(s.address) %}
+  <tr>
+    <td><input type="checkbox" name="sender" value="{{ s.address }}" class="pick" {% if allow %}disabled{% endif %}></td>
+    <td>{{ s.address }}{% if s.name %}<br><span class="muted">{{ s.name }}</span>{% endif %}</td>
+    <td class="num">{{ s.count }}</td>
+    <td>{{ s.latest_subject }}<br><span class="muted">{{ s.latest_date.strftime("%Y-%m-%d") if s.latest_date else "" }}</span></td>
+    <td>{% if allow %}<span class="tag skipped">Allowlisted</span>{% else %}<span class="tag {{ s.method.split()[0] }}">{{ s.method }}</span>{% endif %}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="5" class="muted">None found.</td></tr>
+  {% endfor %}
+</table>
+
+<h2>No unsubscribe header &mdash; block manually in AOL ({{ no_method|length }})</h2>
+<table>
+  <tr><th>Sender</th><th>Emails</th><th>Latest subject</th></tr>
+  {% for s in no_method %}
+  <tr>
+    <td>{{ s.address }}{% if s.name %}<br><span class="muted">{{ s.name }}</span>{% endif %}</td>
+    <td class="num">{{ s.count }}</td>
+    <td>{{ s.latest_subject }}<br><span class="muted">{{ s.latest_date.strftime("%Y-%m-%d") if s.latest_date else "" }}</span></td>
+  </tr>
+  {% else %}
+  <tr><td colspan="3" class="muted">None found.</td></tr>
+  {% endfor %}
+</table>
+
+<div class="bar">
+  <label><input type="checkbox" name="dry_run" id="dry" checked {% if demo %}disabled{% endif %}> Dry run (no requests or emails sent)</label>
+  <button type="submit">Unsubscribe selected</button>
+</div>
+</form>
+
+<script>
+  document.getElementById("all").addEventListener("change", e =>
+    document.querySelectorAll(".pick:not(:disabled)").forEach(c => c.checked = e.target.checked));
+  document.getElementById("form").addEventListener("submit", e => {
+    const n = document.querySelectorAll(".pick:checked").length;
+    if (!n) { alert("Tick at least one sender."); e.preventDefault(); return; }
+    if (!document.getElementById("dry").checked &&
+        !confirm("LIVE run: this will send real unsubscribe requests for " + n + " sender(s). Continue?"))
+      e.preventDefault();
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Results {% if dry_run %}<span class="tag dry-run">dry run</span>{% else %}<span class="tag failed">live</span>{% endif %}</h1>
+{% if not results %}
+  <p>Nothing selected.</p>
+{% else %}
+<p class="muted">Logged to {{ log_name }}.{% if dry_run %} Nothing was sent.{% endif %}</p>
+<table>
+  <tr><th>Sender</th><th>Method</th><th>Result</th><th>Detail</th></tr>
+  {% for r in results %}
+  <tr>
+    <td>{{ r.address }}</td>
+    <td>{{ r.method }}</td>
+    <td><span class="tag {{ r.status }}">{{ r.status }}</span></td>
+    <td>{{ r.detail }}
+      {% if r.link %}<br><a href="{{ r.link }}" target="_blank" rel="noopener noreferrer">{{ r.link }}</a>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+<p><a href="/">&larr; Back to list</a></p>
+{% endblock %}
